@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Spacebucks
 {
@@ -16,13 +17,13 @@ namespace Spacebucks
         private int GetScienceReduction()
         {
             float s = ResearchAndDevelopment.Instance.Science;
-            int max = (int)(s / 6);
-            return Utilities.Instance.Randomize.Next(max) + 1;
+            int max = (int)(s / 8);
+            return Math.Min(Utilities.Instance.Randomize.Next(max) + 1, 100);
         }
 
         public override bool EventCanFire()
         {
-            return (ResearchAndDevelopment.Instance.Science >= 6);
+            return (ResearchAndDevelopment.Instance.Science >= 8);
         }
 
         protected override void OnEventAccepted()
