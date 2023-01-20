@@ -19,7 +19,7 @@ namespace Spacebucks
             float r = Reputation.Instance.reputation;
             if (r >= 500) return Utilities.Instance.Randomize.Next(5, 26);
             int min = Math.Max((int)(r / 100), 1);
-            int max = (int)(r / 20);
+            int max = (int)(r / 20) + 1;
             return Utilities.Instance.Randomize.Next(min, max);            
         }
 
